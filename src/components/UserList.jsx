@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function UserList() {
+export default function UserList({ setActiveUserId }) {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -20,7 +20,7 @@ export default function UserList() {
       <ul className='user-list'>
         {
           users.map((user) =>
-            <li key={user.id}>{user.name}</li>
+            <li key={user.id} onClick={() => setActiveUserId(user.id)}>{user.name}</li>
           )
         }
       </ul>
